@@ -8,7 +8,7 @@
 Expected:
 
 .abc {
-    padding: 9px;
+    padding: -1px;
     margin: -5 auto;
     max-width: 75pc;
 }

@@ -25,8 +25,11 @@ def edit_file(file_path, lines_to_edit, adjustments):
         text  = content[line_number - 1]
         matches = re.findall(pattern, text)
         for match in matches:
-            numbers = [int(num) + adjustment for num in re.findall(r'\d+', match)]
-            new_numbers = ' '.join(map(str, numbers))
+            # This applies to the corner-case of padding: 20 20 20 20px and others...
+            numbers_in_line = re.findall(r'\d+', match)
+            units = re.findall(r'\D+',match)
+            adj_numbs = [str(int(num) + adjustment) + unit for num,unit in zip(numbers_in_line,units)]
+            new_numbers = ' '.join(map(str, adj_numbs))
             text = text.replace(match, new_numbers)
         content[line_number - 1] = text
     # Write the modified content back to the file
