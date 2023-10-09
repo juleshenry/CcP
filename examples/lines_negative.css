@@ -1,0 +1,15 @@
+.abc {
+    padding: 4px;
+    margin: 0 auto;
+    max-width: 80pc;
+}
+
+/* 
+Expected:
+
+.abc {
+    padding: 9px;
+    margin: -5 auto;
+    max-width: 75pc;
+}
+*/
