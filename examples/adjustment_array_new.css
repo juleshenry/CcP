@@ -1,0 +1,17 @@
+.abc {
+    max-height: 16;
+    max-width: 11pc;
+    padding: 34px;
+    margin: 20 auto;
+}
+
+/* 
+Expected: python3 ccp.py --file examples/adjustment_array.css --lines 2,3,4,5 --adjustments 6,-9,4,-20
+
+.abc {
+    max-height: 16;
+    max-width: 11pc;
+    padding: 34px;
+    margin: 20 auto;
+}
+*/
