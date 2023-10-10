@@ -1,40 +1,57 @@
 import argparse
 import re
 
+
 def parse_arguments():
     parser = argparse.ArgumentParser(description="CSS Parser")
     parser.add_argument("--file", required=True, help="Input CSS file")
-    parser.add_argument("--lines", type=str, required=True, help="Lines to modify (comma-separated)")
-    parser.add_argument("--adjustments", type=str, required=True, help="Adjustments for corresponding lines (comma-separated)")
+    parser.add_argument(
+        "--lines", type=str, required=True, help="Lines to modify (comma-separated)"
+    )
+    parser.add_argument(
+        "--adjustments",
+        type=str,
+        required=True,
+        help="Adjustments for corresponding lines (comma-separated)",
+    )
 
     args = parser.parse_args()
 
     # Convert lines and adjustments to lists of integers
-    args.lines = list(map(int, args.lines.split(',')))
-    args.adjustments = list(map(int, args.adjustments.split(',')))
+    args.lines = list(map(int, args.lines.split(",")))
+    args.adjustments = list(map(int, args.adjustments.split(",")))
 
     return args
 
+
 def edit_file(file_path, lines_to_edit, adjustments):
-    if len(adjustments)!=len(lines_to_edit):
+    if len(adjustments) != len(lines_to_edit):
         adjustments = adjustments * len(lines_to_edit)
-    with open(file_path, 'r') as file:
+    with open(file_path, "r") as file:
         content = file.readlines()
-    pattern = r'\d+(?:\s+\d+)*(?:\w+)?'
+    pattern = r"\d+(?:\s+\d+)*(?:\w+)?"
     for line_number, adjustment in zip(lines_to_edit, adjustments):
-        text  = content[line_number - 1]
+        text = content[line_number - 1]
         matches = re.findall(pattern, text)
         for match in matches:
             # This applies to the corner-case of padding: 20 20 20 20px and others...
-            numbers_in_line = re.findall(r'\d+', match)
-            units = re.findall(r'\D+',match)
-            adj_numbs = [str(int(num) + adjustment) + unit for num,unit in zip(numbers_in_line,units)]
-            new_numbers = ' '.join(map(str, adj_numbs))
+            numbers_in_line = re.findall(r"\d+", match)
+            print(match)
+            units = re.findall(r"\D+", match)
+            if len(units) != len(numbers_in_line):
+                pass
+            adj_numbs = [
+                str(int(num) + adjustment) + unit
+                for num, unit in zip(numbers_in_line, units)
+            ]
+            print(numbers_in_line, units)
+            new_numbers = " ".join(map(str, adj_numbs))
             text = text.replace(match, new_numbers)
         content[line_number - 1] = text
     # Write the modified content back to the file
-    with open(file_path.replace('.css','_new.css'), 'w') as file:
+    with open(file_path.replace(".css", "_new.css"), "w") as file:
         file.writelines(content)
+
 
 if __name__ == "__main__":
     args = parse_arguments()

@@ -1,9 +1,9 @@
 CSS CLI Project (CcP)
 
 
-```python3 ccp.py --file examples/lines_positive.css --lines 2,3,4 --adjustments 5```
+```python3 ccp.py --file examples/lines_positive.css --lines 2,3,4,5 --adjustments +1```
 
-```python3 ccp.py --file examples/lines_negative.css --lines 2,3,4 --adjustments -5```
+```python3 ccp.py --file examples/lines_negative.css --lines 2,3,4,5 --adjustments -1```
 
 ```python3 ccp.py --file examples/adjustment_array.css --lines 2,3,4 --adjustments 2,5,-10```
 
