@@ -25,6 +25,7 @@ def parse_arguments():
 
 
 def edit_file(file_path, lines_to_edit, adjustments):
+    # star-map case
     if len(adjustments) != len(lines_to_edit):
         adjustments = adjustments * len(lines_to_edit)
     with open(file_path, "r") as file:
@@ -36,16 +37,19 @@ def edit_file(file_path, lines_to_edit, adjustments):
         for match in matches:
             # This applies to the corner-case of padding: 20 20 20 20px and others...
             numbers_in_line = re.findall(r"\d+", match)
-            print(match)
+            print('[match]',match)
             units = re.findall(r"\D+", match)
+            # if without units...
             if len(units) != len(numbers_in_line):
-                pass
+                units = ['']*len(numbers_in_line)
             adj_numbs = [
                 str(int(num) + adjustment) + unit
                 for num, unit in zip(numbers_in_line, units)
             ]
-            print(numbers_in_line, units)
+            print('[adjnumbs]',adj_numbs)
+            print('[numbs,units]',numbers_in_line, units)
             new_numbers = " ".join(map(str, adj_numbs))
+
             text = text.replace(match, new_numbers)
         content[line_number - 1] = text
     # Write the modified content back to the file

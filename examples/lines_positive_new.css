@@ -1,0 +1,17 @@
+.abc {
+    max-height: 9;
+    max-width: 19pc;
+    padding: 29px;
+    margin: 39 auto;
+}
+
+/* 
+Expected: python3 ccp.py --file examples/lines_positive.css --lines 2,3,4,5 --adjustments +1
+
+.abc {
+    max-height: 11;
+    max-width: 21pc;
+    padding: 31px;
+    margin: 41 auto;
+}
+*/
