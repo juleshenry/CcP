@@ -6,12 +6,12 @@
 }
 
 /* 
-Expected: python3 ccp.py --file examples/lines_positive.css --lines 2,3,4,5 --adjustments +1
+Expected: python3 ccp.py --file examples/adjustment_array.css --lines 2,3,4,5 --adjustments 6,-9,4,-20
 
 .abc {
-    max-height: 11;
-    max-width: 21pc;
-    padding: 31px;
-    margin: 41 auto;
+    max-height: 4;
+    max-width: 11pc;
+    padding: 34px;
+    margin: 20 auto;
 }
 */
