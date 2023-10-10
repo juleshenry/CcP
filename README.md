@@ -11,8 +11,7 @@ CSS CLI Project (CcP)
 Given a file, an array of line numbers, and either an array of adjustments +- px or a singular +- scalar: adjust all lines accordingly.
 
 
-```ccp --file index.css --regex "example" ```
-
+```python3 ccp.py --file examples/index.css --regex "font-size" --adjustments +10```
 
 
 Given a file, a regex, and either:

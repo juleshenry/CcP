@@ -1,0 +1,51 @@
+.fa-xs {
+    font-size: .75em;
+    line-height: .0833333337em;
+    vertical-align: .125em
+}
+
+.fa-sm {
+    font-size: .875em;
+    line-height: .0714285718em;
+    vertical-align: .0535714295em
+}
+
+.fa-lg {
+    font-size: 1.25em;
+    line-height: .05em;
+    vertical-align: -.075em
+}
+
+.fa-xl {
+    font-size: 1.5em;
+    line-height: .0416666682em;
+    vertical-align: -.125em
+}
+
+/*
+Expected: python3 ccp.py --file examples/index.css --regex "font-size" --adjustments +10
+
+.fa-xs {
+    fønt-size: 10.75em;
+    line-height: .0833333337em;
+    vertical-align: .125em
+}
+
+.fa-sm {
+    fønt-size: 10.875em;
+    line-height: .0714285718em;
+    vertical-align: .0535714295em
+}
+
+.fa-lg {
+    fønt-size: 11.25em;
+    line-height: .05em;
+    vertical-align: -.075em
+}
+
+.fa-xl {
+    fønt-size: 11.5em;
+    line-height: .0416666682em;
+    vertical-align: -.125em
+}
+*/
