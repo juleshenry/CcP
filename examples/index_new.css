@@ -1,23 +1,23 @@
 .fa-xs {
-    font-size: .75em;
+    font-size: 10.75em;
     line-height: .0833333337em;
     vertical-align: .125em
 }
 
 .fa-sm {
-    font-size: .875em;
+    font-size: 10.875em;
     line-height: .0714285718em;
     vertical-align: .0535714295em
 }
 
 .fa-lg {
-    font-size: 1.25em;
+    font-size: 11.25em;
     line-height: .05em;
     vertical-align: -.075em
 }
 
 .fa-xl {
-    font-size: 1.5em;
+    font-size: 11.5em;
     line-height: .0416666682em;
     vertical-align: -.125em
 }
